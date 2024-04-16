@@ -1,0 +1,47 @@
+{
+    "services": {
+      "grist": {
+        "image": "gristlabs/grist-omnibus",
+        "container_name": "grist",
+        "ports": [
+          {
+            "host": 80,
+            "container": 80
+          },
+          {
+            "host": 443,
+            "container": 443
+          }
+        ],
+        "volumes": [
+          {
+            "host": "/tmp/grist-test",
+            "container": "/persist"
+          }
+        ],
+        "environment": [
+          {
+            "key": "URL",
+            "value": "https://cool-beans.example.com"
+          },
+          {
+            "key": "HTTPS",
+            "value": "auto"
+          },
+          {
+            "key": "TEAM",
+            "value": "cool-beans"
+          },
+          {
+            "key": "EMAIL",
+            "value": "owner@example.com"
+          },
+          {
+            "key": "PASSWORD",
+            "value": "topsecret"
+          }
+        ],
+        "command": ["docker", "run"]
+      }
+    }
+  }
